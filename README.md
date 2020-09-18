@@ -29,7 +29,7 @@ $ docker pull mythril/myth
 Install from Pypi:
 
 ```bash
-$ pip3 install mythril
+$ python3 -m pip install mythril
 ```
 
 See the [docs](https://mythril-classic.readthedocs.io/en/master/installation.html) for more detailed instructions. 
