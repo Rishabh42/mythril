@@ -32,7 +32,7 @@ log = logging.getLogger(__name__)
 
 
 class InstructionProfilerBuilder(PluginBuilder):
-    plugin_name = "dependency-pruner"
+    name = "instruction-profiler"
 
     def __call__(self, *args, **kwargs):
         return InstructionProfiler()

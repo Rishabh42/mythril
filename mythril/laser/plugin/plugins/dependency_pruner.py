@@ -71,7 +71,7 @@ def get_ws_dependency_annotation(state: GlobalState) -> WSDependencyAnnotation:
 
 
 class DependencyPrunerBuilder(PluginBuilder):
-    plugin_name = "dependency-pruner"
+    name = "dependency-pruner"
 
     def __call__(self, *args, **kwargs):
         return DependencyPruner()
@@ -242,7 +242,7 @@ class DependencyPruner(LaserPlugin):
             location = state.mstate.stack[-1]
 
             if location not in annotation.storage_loaded:
-                annotation.storage_loaded.append(location)
+                annotation.storage_loaded.add(location)
 
             # We backwards-annotate the path here as sometimes execution never reaches a stop or return
             # (and this may change in a future transaction).
@@ -332,6 +332,6 @@ class DependencyPruner(LaserPlugin):
             # the next transaction
 
             annotation.path = [0]
-            annotation.storage_loaded = []
+            annotation.storage_loaded = set()
 
             world_state_annotation.annotations_stack.append(annotation)
